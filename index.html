@@ -5,59 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HabitRabbit - Simple Habit Tracker</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🐰 HabitRabbit</h1>
-            <p>Track your daily habits, one step at a time!</p>
+            <div class="logo">
+                <i class="fas fa-rabbit"></i>
+                <h1>HabitRabbit</h1>
+            </div>
+            <p class="tagline">Track your daily habits, one hop at a time! 🐰</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span id="totalHabits">0</span>
+                    <label>Total Habits</label>
+                </div>
+                <div class="stat-item">
+                    <span id="completedHabits">0</span>
+                    <label>Completed Today</label>
+                </div>
+                <div class="stat-item">
+                    <span id="streak">0</span>
+                    <label>Day Streak</label>
+                </div>
+            </div>
         </header>
 
         <div class="habit-form">
-            <h2>Add New Habit</h2>
+            <h2><i class="fas fa-plus-circle"></i> Add New Habit</h2>
             <form id="habitForm">
                 <div class="form-group">
-                    <label for="habitName">Habit Name:</label>
+                    <label for="habitName">
+                        <i class="fas fa-pencil-alt"></i> Habit Name
+                    </label>
                     <input type="text" id="habitName" placeholder="e.g., Morning Meditation" required>
                 </div>
                 <div class="form-group">
-                    <label for="habitFrequency">Frequency:</label>
+                    <label for="habitFrequency">
+                        <i class="fas fa-calendar-alt"></i> Frequency
+                    </label>
                     <select id="habitFrequency" required>
                         <option value="daily">Daily</option>
                         <option value="weekly">Weekly</option>
                         <option value="monthly">Monthly</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-primary">Add Habit</button>
-            </form>
-        </div>
-
-        <div class="habit-form">
-            <h2>Add New Habit</h2>
-            <form id="habitForm">
                 <div class="form-group">
-                    <label for="habitName">Habit Name:</label>
-                    <input type="text" id="habitName" placeholder="e.g., Morning Meditation" required>
-                </div>
-                <div class="form-group">
-                    <label for="habitFrequency">Frequency:</label>
-                    <select id="habitFrequency" required>
-                        <option value="daily">Daily</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="monthly">Monthly</option>
+                    <label for="habitTime">
+                        <i class="fas fa-clock"></i> Best Time of Day
+                    </label>
+                    <select id="habitTime" required>
+                        <option value="morning">Morning</option>
+                        <option value="afternoon">Afternoon</option>
+                        <option value="evening">Evening</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-primary">Add Habit</button>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-plus"></i> Add Habit
+                </button>
             </form>
         </div>
 
-        <div class="habits-list">
-            <h2>My Habits</h2>
-            <div id="habitsList">
+        <div class="habits-container">
+            <div class="habits-header">
+                <h2><i class="fas fa-list-check"></i> My Habits</h2>
+                <div class="habits-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="daily">Daily</button>
+                    <button class="filter-btn" data-filter="weekly">Weekly</button>
+                    <button class="filter-btn" data-filter="monthly">Monthly</button>
+                </div>
+            </div>
+            <div id="habitsList" class="habits-list">
                 <!-- Habits will be added here dynamically -->
             </div>
         </div>
+
+        <div class="motivation-quote">
+            <i class="fas fa-quote-left"></i>
+            <p id="quote">The only way to do great work is to love what you do.</p>
+            <span id="quoteAuthor">- Steve Jobs</span>
+        </div>
     </div>
+
+    <!-- Add a floating action button for quick add -->
+    <button id="quickAddBtn" class="floating-btn">
+        <i class="fas fa-plus"></i>
+    </button>
+
     <script src="script.js"></script>
 </body>
 </html>
